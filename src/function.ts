@@ -33,3 +33,21 @@ let createPic = (title: string, date: string, size: SquareSize): object => {
 
 const picture = createPic('Dia de hoy', '07-01-2022', '100x100');
 console.log('picture', picture);
+
+// Tipo de retorno con TypeScript
+function handleError(code: number, message: string): never | string {
+    if (message == 'error'){
+        throw new Error(`${message}. Code error: ${code}`);
+    } else {
+        return 'An error has occurred';
+    }
+}
+
+try {
+    let result = handleError(200, 'OK'); // Retorna string
+    console.log('result', result);
+    result = handleError(404, 'error'); // Retorna never
+    console.log('result', result);
+} catch (error) {
+    
+}
